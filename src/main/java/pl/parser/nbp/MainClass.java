@@ -5,12 +5,13 @@ import java.io.InputStream;
 import java.time.LocalDate;
 import java.util.*;
 import static pl.parser.nbp.ApiParser.*;
-import static pl.parser.nbp.NarzedziaKalkulacji.getAskStandardDevotion;
-import static pl.parser.nbp.NarzedziaKalkulacji.getBidMean;
+import static pl.parser.nbp.MathClass.getAskStandardDevotion;
+import static pl.parser.nbp.MathClass.getBidMean;
 
 public class MainClass {
    public final static Logger log = Logger.getLogger(MainClass.class);
 
+   
 
     public static void main(String[] args) {
 
@@ -39,6 +40,7 @@ public class MainClass {
 
 
     }
+
 
 
 

@@ -2,10 +2,12 @@ package pl.parser.nbp;
 
 import java.util.List;
 
-public class NarzedziaKalkulacji {
+public class MathClass {
 
 
-    public static double liczSredniaKursuSprzedazy(List<Tabela_kursow> ExchangeRatesList, String currencyCode) {
+
+
+    public static double getAskMean(List<Tabela_kursow> ExchangeRatesList, String currencyCode) {
         double ask = 0.00;
         // todo: zastąpić stream'em
         for (Tabela_kursow exchangeRate : ExchangeRatesList) {
@@ -20,11 +22,13 @@ public class NarzedziaKalkulacji {
 
     }
 
+
+
     public static double getAskStandardDevotion(List<Tabela_kursow> exchangeRatesList, String currencyCode) {
         double Wariancja = 0.0;
-        double mean = liczSredniaKursuSprzedazy(exchangeRatesList, currencyCode);
+        double mean = getAskMean(exchangeRatesList, currencyCode);
         double ask = 0.00;
-        // todo: spróbować zamienić na stream
+
         for (Tabela_kursow exchangeRate : exchangeRatesList) {
             for (Pozycja position : exchangeRate.getPozycja()){
                 if (position.getKod_waluty().equalsIgnoreCase(currencyCode)) {
@@ -33,8 +37,8 @@ public class NarzedziaKalkulacji {
                 }
             }
         }
-        double sqrt = roundTo4DecimalPlaces(Math.sqrt(Wariancja / (exchangeRatesList.size())));
-        return sqrt;
+        double roundedStandardDevotion = roundTo4DecimalPlaces(Math.sqrt(Wariancja / (exchangeRatesList.size())));
+        return roundedStandardDevotion;
 
     }
 
@@ -47,6 +51,7 @@ public class NarzedziaKalkulacji {
 
         return numberToRound;
     }
+
 
     public static double getBidMean(List<Tabela_kursow> exchangeRatesList, String currencyCode) {
         double bid = 0.00;

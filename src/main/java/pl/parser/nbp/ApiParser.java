@@ -16,19 +16,7 @@ import static pl.parser.nbp.DateParser.getParsedYearFromDate;
 
 public  class ApiParser {
 
-    /**
-     *  Method List of codes
-     *  Creates new List<String>
-     *  Then parse date using getParsedYearFromDate  from DateParser Class
-     *  Parse them to Integers
-     *  use ParsedDates as parameters in For loop
-     *  Adding
-     *
-     *
-     * @param startDate starting date of period  for example "2014-12-01" as String;
-     * @param endDate   ending  date  of period for example "2015-03-23" as String
-     * @return List of codes  like [[c019z141201, c020z141202, c021z141203..........co93z150323]
-     */
+
 
     public static List<String> listOfCodes(String startDate, String endDate) {
 
@@ -43,8 +31,6 @@ public  class ApiParser {
                 codeslist.addAll(returnListWithCodes(inputStream));
 
             }
-            //inputStream = new URL("http://www.nbp.pl/kursy/xml/dir" + getParsedYearFromDate(endDate) + ".txt").openStream();
-            //codeslist.addAll(returnListWithCodes(inputStream));
 
         } catch (IOException e) {
             log.error("Error on loading url. Not valid url.");

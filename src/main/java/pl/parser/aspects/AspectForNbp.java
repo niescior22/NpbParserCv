@@ -83,7 +83,7 @@ public class AspectForNbp {
         log.debug("=====>> result"+ theResult);
     }
 
-    @Pointcut("execution( * pl.parser.nbp.NarzedziaKalkulacji.*(..))")
+    @Pointcut("execution( * pl.parser.nbp.MathClass.*(..))")
     private void forNarzedziaKalkulacji() {
     }
 
